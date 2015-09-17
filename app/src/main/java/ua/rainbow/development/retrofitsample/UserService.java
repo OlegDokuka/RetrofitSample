@@ -10,7 +10,7 @@ import retrofit.http.Body;
  */
 public class UserService implements UserRepository {
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://www.google.com.ua")
+            .baseUrl("http://postcatcher.in")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     private UserRepository userRepository = retrofit.create(UserRepository.class);
