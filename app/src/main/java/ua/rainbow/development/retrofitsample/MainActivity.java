@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        new UserService().get(new User()).enqueue(new Callback<String>() {
+        new UserService().put(new User()).enqueue(new Callback<Object>() {
             @Override
-            public void onResponse(Response<String> response) {
-                textView.setText(response.body() + "|" + response.message() + "|" + response.code());
+            public void onResponse(Response<Object> response) {
+                textView.setText(response.body().toString() + "|" + response.message() + "|" + response.code());
             }
 
             @Override

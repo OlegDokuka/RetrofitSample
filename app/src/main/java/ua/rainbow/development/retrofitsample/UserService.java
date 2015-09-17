@@ -10,13 +10,23 @@ import retrofit.http.Body;
  */
 public class UserService implements UserRepository {
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://postcatcher.in")
+            .baseUrl("http://httpbin.org")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     private UserRepository userRepository = retrofit.create(UserRepository.class);
 
     @Override
-    public Call<String> get(@Body User user) {
-        return userRepository.get(user);
+    public Call<Object> get() {
+        return userRepository.get();
+    }
+
+    @Override
+    public Call<Object> put(@Body User user) {
+        return userRepository.put(user);
+    }
+
+    @Override
+    public Call<Object> post(@Body User user) {
+        return userRepository.post(user);
     }
 }
